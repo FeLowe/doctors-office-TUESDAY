@@ -57,6 +57,13 @@ public class DoctorTest{
     Doctor databaseDoctor = Doctor.all().get(0);
     assertEquals(testDoctor.getId(), databaseDoctor.getId());
   }
+  @Test
+  public void doctor_instantiates_findDoctorById(){
+    Doctor testDoctor = new Doctor("Carlos", "Gino");
+    testDoctor.save();
+    Doctor databaseDoctor = Doctor.find(testDoctor.getId());
+    assertTrue(testDoctor.equals(databaseDoctor));
+  }
 
 
 
